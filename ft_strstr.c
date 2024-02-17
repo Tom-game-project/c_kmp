@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 char *ft_strstr(char *str,char *target)
 {
 	char *str_ptr;
@@ -20,13 +18,3 @@ char *ft_strstr(char *str,char *target)
 	}
 	return (str);
 }
-
-int main (void)
-{
-	char *a = "sunsunsurf";
-	char *b;
-	
-	b = ft_strstr(a,"sunsurf");
-	printf("%s\n",b);
-}
-

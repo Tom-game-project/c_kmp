@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 
 /*
@@ -68,7 +67,7 @@ int	*create_skip_list(char *str,unsigned int str_length)
 * 
 * return first matching pointer will return
 */
-char	*ft_strstr(char *str,char *target)
+char	*ft_kmp_strstr(char *str,char *target)
 {
 	int *skip_list;
 	unsigned int i;
@@ -94,13 +93,3 @@ char	*ft_strstr(char *str,char *target)
 	}
 	return (&str[i]);
 }
-
-int	main(void)
-{
-	char *a = "abababbabcabbaaaaaa";
-	char *target_a = "abcabba";
-
-	printf("match %s\n", ft_strstr(a,target_a));
-	return (0);
-}
-
