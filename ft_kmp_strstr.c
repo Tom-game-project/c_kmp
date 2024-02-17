@@ -19,23 +19,6 @@ unsigned int	ft_strlen(char *str)
 	return (count);
 }
 
-/*
-* # ft_strstr_test
-* 
-* return first matching pointer will return
-*/
-/*
-int	*ft_strstr_test(char *str,char *target)
-{
-	// kmp algorithum
-	int *skip_list;
-
-	skip_list = create_skip_list(str);
-	return (skip_list);
-}
-*/
-
-
 int	ft_streq(char *str0,char *str1,int stop_index)
 {
 	int i;
@@ -44,9 +27,7 @@ int	ft_streq(char *str0,char *str1,int stop_index)
 	while (*str0 && i < stop_index)
 	{
 		if (*str0 != *str1)
-		{
 			return (0);
-		}
 		str0++;
 		str1++;
 		i++;
@@ -59,15 +40,13 @@ int	ft_streq(char *str0,char *str1,int stop_index)
 * 
 * create skip list and the pointer will return 
 */
-int	*create_skip_list(char *str)
+int	*create_skip_list(char *str,unsigned int str_length)
 {
 	int *skip_list;
-	int str_length;
-	int i;
-	int slide;
+	unsigned int i;
+	unsigned int slide;
 
-	str_length = ft_strlen(str);
-	skip_list = malloc(sizeof(int) * str_length);// list for return
+	skip_list = malloc(sizeof(int) * str_length);
 	if (!skip_list)
 		return (NULL);
 	i = 0;
@@ -75,35 +54,62 @@ int	*create_skip_list(char *str)
 	i++;
 	while (i < str_length)
 	{
-		// i文字目で失敗したとき
-		// どれくらい文字をずらせばいいのかを
-		// 計算する
 		slide = 1;
-		printf("%d %s %s %d\n",i,&(str[slide]),str, i-slide);
 		while (slide < i && !ft_streq(&(str[slide]),str,i-slide))
-		{
 			slide++;
-			printf("%d %s %s %d\n",i,&(str[slide]),str, i-slide);
-		}
 		skip_list[i] = slide;
 		i++;
 	}
 	return (skip_list);
 }
 
+/*
+* # ft_strstr_test
+* 
+* return first matching pointer will return
+*/
+char	*ft_strstr(char *str,char *target)
+{
+	// kmp algorithum
+	int *skip_list;
+	unsigned int i;
+	int j;
+	unsigned int str_length;
+
+	skip_list = create_skip_list(target,ft_strlen(target));
+	printf("skip list:");
+	for (unsigned int index = 0; index < ft_strlen(target);index++)
+	{
+		printf("%d ",skip_list[index]);
+	}
+	printf("\n");
+
+	str_length = ft_strlen(str);
+	printf("str length %d\n",str_length);
+	i = 0;
+	while (i < str_length)
+	{
+		j = 0;
+
+		while (target[j] != '\0')
+		{
+			j++;
+			if (target[j] != str[i + j])
+				break;
+		}
+		if (!target[j])
+			return (&str[i]);
+		i += skip_list[j];
+	}
+	return (&str[i]);
+}
 
 int	main(void)
 {
-	char *a = "abababbabcabba";
-	char *target = "abcabba";
- 	unsigned int string_length = ft_strlen(target);
-	int *skip_list = create_skip_list(target);
+	char *a = "abababbabcabbaaaaaa";
+	char *target_a = "abcabba";
 
-	printf("length of target %d\n", string_length);	
-	for (unsigned int i = 0; i < string_length; i++)
-	{
-		printf("%d\n",skip_list[i]);
-	}
+	printf("match %s\n", ft_strstr(a,target));
 	return (0);
 }
 
