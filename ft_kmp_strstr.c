@@ -91,10 +91,14 @@ char	*ft_kmp_strstr(char *str,char *target)
 				break;
 		}
 		if (target[j] == '\0')
+		{
+			free(skip_list);
 			return (&str[i]);
+		}		
 		step = skip_list[j];
 		i += step;
 		ignore_step = j - step;
 	}
+	free(skip_list);
 	return (&str[i]);
 }
