@@ -72,14 +72,18 @@ char	*ft_kmp_strstr(char *str,char *target)
 	int *skip_list;
 	unsigned int i;
 	int j;
+	int step;
+	int ignore_step;
 	unsigned int str_length;
 
 	skip_list = create_skip_list(target,ft_strlen(target));
 	str_length = ft_strlen(str);
 	i = 0;
+	step = 1;
+	ignore_step = 0;
 	while (i < str_length)
 	{
-		j = 0;
+		j = ignore_step;
 
 		while (target[j] != '\0')
 		{
@@ -87,9 +91,11 @@ char	*ft_kmp_strstr(char *str,char *target)
 			if (target[j] != str[i + j])
 				break;
 		}
-		if (!target[j])
+		if (target[j] == '\0')
 			return (&str[i]);
-		i += skip_list[j];
+		step = skip_list[j];
+		i += step;
+		ignore_step = j - step;
 	}
 	return (&str[i]);
 }
