@@ -79,7 +79,6 @@ char	*ft_kmp_strstr(char *str,char *target)
 	skip_list = create_skip_list(target,ft_strlen(target));
 	str_length = ft_strlen(str);
 	i = 0;
-	step = 1;
 	ignore_step = 0;
 	while (i < str_length)
 	{
