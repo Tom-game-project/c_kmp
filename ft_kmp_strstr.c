@@ -70,22 +70,13 @@ int	*create_skip_list(char *str,unsigned int str_length)
 */
 char	*ft_strstr(char *str,char *target)
 {
-	// kmp algorithum
 	int *skip_list;
 	unsigned int i;
 	int j;
 	unsigned int str_length;
 
 	skip_list = create_skip_list(target,ft_strlen(target));
-	printf("skip list:");
-	for (unsigned int index = 0; index < ft_strlen(target);index++)
-	{
-		printf("%d ",skip_list[index]);
-	}
-	printf("\n");
-
 	str_length = ft_strlen(str);
-	printf("str length %d\n",str_length);
 	i = 0;
 	while (i < str_length)
 	{
@@ -109,7 +100,7 @@ int	main(void)
 	char *a = "abababbabcabbaaaaaa";
 	char *target_a = "abcabba";
 
-	printf("match %s\n", ft_strstr(a,target));
+	printf("match %s\n", ft_strstr(a,target_a));
 	return (0);
 }
 
