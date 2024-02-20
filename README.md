@@ -2,16 +2,21 @@
 
 This is a repository for a C implementation of the KMP(Knuth–Morris–Pratt) algorithm.
 
-## Test
+## How to use
 
-### ft_strstr.c test
-
-```bash
-gcc -Wextra -Werror -Wall ft_strstrtest.c ft_strstr.c
-```
-
-### ft_kmp_strstr.c test
+### screate dynamic link library
 
 ```bash
-gcc -Wextra -Werror -Wall ft_kmp_strstrtest.c ft_kmp_strstr.c
+mkdir pkg
+make lib
 ```
+
+### delete all binary file
+
+```bash
+make clean
+```
+
+### using c file from python
+
+Check inside the [main.py file](/main.py)
