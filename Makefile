@@ -15,3 +15,4 @@ lib: src/$(SRC)
 
 clean:
 	rm -f pkg/*.o *~ pkg/$(PROGRAM) pkg/$(LIBPROGRAM)
+
