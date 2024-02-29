@@ -43,6 +43,13 @@ class C_ft:
         pass
 
 if __name__ == "__main__":
+    """
+    before running this file you need to compile c file and create dynamic linked library.
+    Please run following command.
+    ```bash
+    make lib
+    ```
+    """
     ft = C_ft("./pkg/ft_kmp_strstr.so")
     
     text="abababbabcabbaaaaaa"
