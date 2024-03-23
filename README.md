@@ -4,7 +4,7 @@ This is a repository for a C implementation of the KMP(Knuth–Morris–Pratt) a
 
 ## How to use
 
-### screate dynamic link library
+### create dynamic link library
 
 ```bash
 mkdir pkg
