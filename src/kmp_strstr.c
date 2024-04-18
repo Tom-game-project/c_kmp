@@ -5,7 +5,7 @@
 * 
 * return length of string;
 */
-unsigned int	ft_strlen(char *str)
+unsigned int	my_strlen(char *str)
 {
 	unsigned int count;
 
@@ -18,7 +18,7 @@ unsigned int	ft_strlen(char *str)
 	return (count);
 }
 
-int	ft_streq(char *str0,char *str1,int stop_index)
+int	streq(char *str0, char *str1, int stop_index)
 {
 	int i;
 
@@ -54,7 +54,7 @@ int	*create_skip_list(char *str,unsigned int str_length)
 	while (i < str_length)
 	{
 		slide = 1;
-		while (slide < i && !ft_streq(&(str[slide]),str,i-slide))
+		while (slide < i && !streq(&(str[slide]),str,i-slide))
 			slide++;
 		skip_list[i] = slide;
 		i++;
@@ -67,7 +67,7 @@ int	*create_skip_list(char *str,unsigned int str_length)
 * 
 * return first matching pointer will return
 */
-char	*ft_kmp_strstr(char *str,char *target)
+char	*kmp_strstr(char *str,char *target)
 {
 	int *skip_list;
 	unsigned int i;
@@ -76,8 +76,8 @@ char	*ft_kmp_strstr(char *str,char *target)
 	int ignore_step;
 	unsigned int str_length;
 
-	skip_list = create_skip_list(target,ft_strlen(target));
-	str_length = ft_strlen(str);
+	skip_list = create_skip_list(target,my_strlen(target));
+	str_length = my_strlen(str);
 	i = 0;
 	ignore_step = 0;
 	while (i < str_length)

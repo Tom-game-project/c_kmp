@@ -1,9 +1,9 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Werror
-SRC     = ft_kmp_strstr.c
-TESTSRC = ft_kmp_strstrtest.c
+SRC     = kmp_strstr.c
+TESTSRC = kmp_strstrtest.c
 PROGRAM = test.out
-LIBPROGRAM = ft_kmp_strstr.so
+LIBPROGRAM = kmp_strstr.so
 
 all: $(PROGRAM)
 

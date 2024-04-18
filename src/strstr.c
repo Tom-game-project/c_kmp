@@ -1,4 +1,4 @@
-char *ft_strstr(char *str,char *target)
+char *strstr(char *str,char *target)
 {
 	char *str_ptr;
 	char *target_ptr;

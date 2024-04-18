@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char *ft_strstr(char *str,char *target);
+char *strstr(char *str,char *target);
 
 int main (void)
 {
@@ -16,10 +16,10 @@ int main (void)
 
 	char *text03 = "apple";
 	char *target03 = "a";
-	printf("match %s\n", ft_kmp_strstr(text00,target00));
-	printf("match %s\n", ft_kmp_strstr(text01,target01));
-	printf("match %s\n", ft_kmp_strstr(text02,target02));
-	printf("match %s\n", ft_kmp_strstr(text03,target03));
+	printf("match %s\n", kmp_strstr(text00,target00));
+	printf("match %s\n", kmp_strstr(text01,target01));
+	printf("match %s\n", kmp_strstr(text02,target02));
+	printf("match %s\n", kmp_strstr(text03,target03));
 
 	return (0);
 }
